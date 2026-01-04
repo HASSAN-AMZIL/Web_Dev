@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commandes & Factures</title>
+  <link rel="stylesheet" href="../css/Commande.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">G</div>
+        <div class="brand-text">
+          <div class="brand-name">Gestion De Stock</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="../Dashboard.html">
+          <span class="nav-ico">▦</span><span>Tableau de bord</span>
+        </a>
+        <a class="nav-link" href="./Clients.html">
+          <span class="nav-ico">👥</span><span>Clients</span>
+        </a>
+        <a class="nav-link" href="./Fournisseur.html">
+          <span class="nav-ico">🏭</span><span>Fournisseurs</span>
+        </a>
+        <a class="nav-link" href="./Produit.html">
+          <span class="nav-ico">📦</span><span>Produits</span>
+        </a>
+        <a class="nav-link active" href="./Commande.html">
+          <span class="nav-ico">🧾</span><span>Commandes</span>
+        </a>
+
+        <div class="nav-sep"></div>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user">
+          <div class="avatar">MA</div>
+          <div class="user-meta">
+            <div class="user-name">Manager</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="page-head">
+        <div>
+          <h1 class="title">Commandes & Factures</h1>
+          <p class="subtitle">Gérer les commandes et leurs factures</p>
+        </div>
+      </header>
+
+      <!-- COMMANDES -->
+      <section class="card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Commandes</h2>
+            <p class="section-sub">Ajouter, modifier, supprimer et rechercher des commandes</p>
+          </div>
+
+          <div class="head-actions">
+            <button class="btn primary" id="openAddCommandeBtn">+ Ajouter une commande</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <input id="searchCommandeInput" type="search" placeholder="Rechercher par statut" />
+          </div>
+          <div class="muted" id="countCommandeLabel">0 commandes</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="commandesTable">
+            <thead>
+              <tr>
+                <th>idCommande</th>
+                <th>idClient</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th class="col-actions">Action</th>
+              </tr>
+            </thead>
+            <tbody id="commandesBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FACTURES -->
+      <section class="card">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Factures</h2>
+            <p class="section-sub">Ajouter, modifier, supprimer et rechercher des factures</p>
+          </div>
+
+          <div class="head-actions">
+            <button class="btn primary" id="openAddFactureBtn">+ Ajouter une facture</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <input id="searchFactureInput" type="search" placeholder="Rechercher par statut" />
+          </div>
+          <div class="muted" id="countFactureLabel">0 factures</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="facturesTable">
+            <thead>
+              <tr>
+                <th>idFacture</th>
+                <th>idCommande</th>
+                <th>Montant</th>
+                <th>Statut</th>
+                <th class="col-actions">Action</th>
+              </tr>
+            </thead>
+            <tbody id="facturesBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Commande -->
+  <div class="modal" id="commandeFormModal">
+    <div class="modal-backdrop" id="closeCommandeBackdrop"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="commandeFormTitle">
+      <div class="modal-head">
+        <h2 id="commandeFormTitle">Ajouter une commande</h2>
+      </div>
+
+      <form class="form" id="commandeForm">
+        <div class="grid">
+          <label>
+            <span>idCommande</span>
+            <input required name="idCommande" placeholder="ex. 20001" />
+          </label>
+
+          <label>
+            <span>idClient</span>
+            <input required name="idClient" placeholder="ex. 02000240" />
+          </label>
+
+          <label>
+            <span>Date</span>
+            <input required type="date" name="date" />
+          </label>
+
+          <label>
+            <span>Statut</span>
+            <input required name="statut" placeholder="ex. En cours / Livrée / Annulée" />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn" id="cancelCommandeBtn">Annuler</button>
+          <button type="submit" class="btn primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Facture -->
+  <div class="modal" id="factureFormModal">
+    <div class="modal-backdrop" id="closeFactureBackdrop"></div>
+
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="factureFormTitle">
+      <div class="modal-head">
+        <h2 id="factureFormTitle">Ajouter une facture</h2>
+      </div>
+
+      <form class="form" id="factureForm">
+        <div class="grid">
+          <label>
+            <span>idFacture</span>
+            <input required name="idFacture" placeholder="ex. F-9001" />
+          </label>
+
+          <label>
+            <span>idCommande</span>
+            <input required name="idCommande" placeholder="ex. 20001" />
+          </label>
+
+          <label>
+            <span>Montant</span>
+            <input required type="number" step="0.01" name="montant" placeholder="ex. 1200.50" />
+          </label>
+
+          <label>
+            <span>Statut</span>
+            <input required name="statut" placeholder="ex. Payée / Impayée" />
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn" id="cancelFactureBtn">Annuler</button>
+          <button type="submit" class="btn primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/Commande.js" defer></script>
+</body>
+</html>
