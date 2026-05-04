@@ -1,95 +1,85 @@
-# Web_Dev
-Projet developpement web
-# Nom du Projet (ex: MyManager - Gestion Hospitalière)
+# Gestion de Stock
 
-<!-- Mettez un court slogan ou une description en une phrase ici -->
-> Application Backoffice de gestion réalisée dans le cadre du module Dévelopement web.
+Application web simple de gestion de stock réalisée avec HTML, CSS et JavaScript. Elle permet de gérer les clients, les fournisseurs, les produits, les commandes et les factures depuis une interface de tableau de bord.
 
-## 🔗 Liens Importants
+## Fonctionnalités
 
-<!-- REMPLACEZ LES LIENS CI-DESSOUS -->
-- **APPLICATION DÉPLOYÉE (Live Demo) :** [CLIQUEZ ICI POUR VOIR LE SITE](https://)
-- **Repository GitHub :** [Lien vers ce repo](https://)
+- Connexion avec un formulaire d'authentification.
+- Tableau de bord avec statistiques globales.
+- Graphiques pour suivre les statuts des commandes et des factures.
+- Gestion des clients : ajouter, modifier, supprimer et rechercher.
+- Gestion des fournisseurs : ajouter, modifier, supprimer et rechercher.
+- Gestion des produits : ajouter, modifier, supprimer et rechercher.
+- Gestion des commandes et des factures.
+- Sauvegarde des données dans le `localStorage` du navigateur.
 
----
+## Technologies utilisées
 
-## 👥 Membres de l'Équipe
+- HTML5
+- CSS3
+- JavaScript
+- Chart.js pour les graphiques du tableau de bord
+- `localStorage` pour stocker les données localement
 
-**Nom du Groupe :** [Insérer le nom du groupe ici]
+## Structure du projet
 
-| Prénom & Nom | Rôle / Tâches principales | Lien Github |
-|--------------|---------------------------|-------------|
-| Étudiant 1   | (ex: Dashboard, ChartJS)  | [@pseudo](https://github.com/pseudo) |
-| Étudiant 2   | (ex: CRUD Utilisateurs)   | [@pseudo](https://github.com/pseudo) |
-| Étudiant 3   | (ex: CSS, Responsive)     | [@pseudo](https://github.com/pseudo) |
+```text
+Web_Dev/
++-- index.html
++-- Dashboard.html
++-- css/
+|   +-- login.css
+|   +-- Dashboard.css
+|   +-- Clients.css
+|   +-- Fournisseur.css
+|   +-- Produit.css
+|   +-- Commande.css
++-- js/
+|   +-- login.js
+|   +-- Dashboard.js
+|   +-- Clients.js
+|   +-- Fournisseur.js
+|   +-- Produit.js
+|   +-- Commande.js
++-- tableaux/
+    +-- Clients.html
+    +-- Fournisseur.html
+    +-- Produit.html
+    +-- Commande.html
+```
 
----
+## Lancement du projet
 
-## 📝 Thème Choisi
-<!-- Indiquez le thème choisi parmi la liste ou votre sujet personnalisé -->
-*   **Thème :** (ex: Gestion de Bibliothèque / Gestion Immobilière / Custom...)
-*   **Description :** Une brève explication du but de l'application.
+1. Télécharger ou cloner le projet.
+2. Ouvrir le fichier `index.html` dans un navigateur web.
+3. Se connecter avec les identifiants suivants :
 
----
+```text
+Nom d'utilisateur : admin
+Mot de passe      : admin
+```
 
-## ✅ État d'Avancement (Checklist)
-<!-- Cochez les cases [x] pour les fonctionnalités terminées. Laissez [ ] pour ce qui n'est pas fait. -->
+Après la connexion, l'utilisateur est redirigé vers le tableau de bord.
 
-### Fonctionnalités Principales
-- [ ] **CRUD 1 :** [Nom Entité, ex: Utilisateurs] (Create, Read, Update, Delete)
-- [ ] **CRUD 2 :** [Nom Entité]
-- [ ] **CRUD 3 :** [Nom Entité]
-- [ ] **CRUD 4 :** [Nom Entité]
-- [ ] **CRUD 5 :** [Nom Entité]
-- [ ] **Recherche & Filtres** dans les tableaux
-- [ ] **Pagination**
+## Pages principales
 
-### Dashboard & Data
-- [ ] **KPIs :** Cartes avec chiffres clés (Total utilisateurs, revenus, etc.)
-- [ ] **Chart 1 :** [Type, ex: Pie Chart]
-- [ ] **Chart 2 :** [Type, ex: Bar Chart]
-- [ ] **Chart 3 :** [Type]
-- [ ] **Chart 4 :** [Type]
-- [ ] **Chart 5 :** [Type]
+| Page | Description |
+| --- | --- |
+| `index.html` | Page de connexion |
+| `Dashboard.html` | Tableau de bord avec statistiques et graphiques |
+| `tableaux/Clients.html` | Gestion des clients |
+| `tableaux/Fournisseur.html` | Gestion des fournisseurs |
+| `tableaux/Produit.html` | Gestion des produits |
+| `tableaux/Commande.html` | Gestion des commandes et des factures |
 
-### Technique & Bonus
-- [ ] **Export :** (PDF ou CSV)
-- [ ] **Architecture :** Code organisé sans Framework (Vanilla JS)
-- [ ] **Design :** Interface Responsive (Mobile/Tablette)
+## Stockage des données
 
----
+Les données sont enregistrées directement dans le navigateur avec `localStorage`. Cela signifie que :
 
-## 🛠 Stack Technique
+- les données restent disponibles après le rafraîchissement de la page ;
+- les données sont propres au navigateur utilisé ;
+- la suppression du cache ou des données du site peut effacer les informations enregistrées.
 
-*   **HTML5 / CSS3** (Framework CSS utilisé : Bootstrap / Tailwind / Autre ?)
-*   **JavaScript (ES6+)** (Vanilla JS obligatoire)
-*   **Bibliothèques JS utilisées :** (ex: Chart.js, Faker.js, jsPDF, Lodash...)
+## Remarque
 
-### APIs Utilisées
-<!-- Listez les APIs externes ou précisez si vous utilisez des données mockées -->
-*   Source des données : [ex: JSONPlaceholder, Mockaroo, API locale...]
-    *   Endpoint 1 : `https://api.emple.com/users`
-    *   Endpoint 2 : ...
-
----
-
-## ⚙️ Installation Locale
-
-Pour lancer le projet localement :
-
-1.  Cloner le repo :
-    ```bash
-    git clone https://github.com/votre-user/votre-repo.git
-    ```
-2.  Ouvrir le dossier :
-    ```bash
-    cd votre-dossier
-    ```
-3.  Lancer l'application :
-    *   Ouvrez simplement `index.html` dans votre navigateur.
-    *   OU utilisez Live Server (VS Code Extension).
-
----
-
-## 📸 Captures d'écran (Optionnel)
-<!-- Vous pouvez ajouter ici 1 ou 2 screenshots de votre interface -->
+Le projet ne nécessite pas de base de données ni de serveur back-end. Une connexion internet peut être nécessaire pour afficher les graphiques, car Chart.js est chargé depuis un CDN.
